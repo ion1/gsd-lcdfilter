@@ -1,3 +1,9 @@
+gsd-lcdfilter (1~ppa2) natty; urgency=low
+
+  * postrm: Only delete the library if the diversion seems to be there.
+
+ -- Johan Kiviniemi <debian@johan.kiviniemi.name>  Fri, 07 Jan 2011 12:40:32 +0200
+
 gsd-lcdfilter (1~ppa1) natty; urgency=low
 
   * Initial release.
