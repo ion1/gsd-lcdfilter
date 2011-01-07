@@ -1,0 +1,17 @@
+#!/bin/sh
+set -eu
+
+file="/usr/lib/gnome-settings-daemon-2.0/libxsettings.so"
+file_orig="$file.original"
+file_temp="$(mktemp "$file.gsd-lcdfilter.XXXXXXXXXX")"
+
+trap 'rm -f "$file_temp"' 0 1 2 13 15
+
+perl -pwe 's/\000\Klcddefault\000/lcdlegacy\000\000/g' <"$file_orig" >"$file_temp"
+chmod --reference="$file_orig" "$file_temp"
+chown --reference="$file_orig" "$file_temp"
+mv -f "$file_temp" "$file"
+
+#DEBHELPER#
+
+# vim:set et sw=2 sts=2:

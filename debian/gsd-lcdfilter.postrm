@@ -1,0 +1,18 @@
+#!/bin/sh
+set -eu
+
+file="/usr/lib/gnome-settings-daemon-2.0/libxsettings.so"
+file_orig="$file.original"
+
+case "$1" in
+remove|abort-install|disappear)
+  rm -f "$file"
+
+  dpkg-divert --package gsd-lcdfilter --remove --rename \
+    --divert "$file_orig" "$file"
+  ;;
+esac
+
+#DEBHELPER#
+
+# vim:set et sw=2 sts=2:

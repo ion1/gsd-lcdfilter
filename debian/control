@@ -1,0 +1,18 @@
+Source: gsd-lcdfilter
+Section: gnome
+Priority: extra
+Maintainer: Johan Kiviniemi <debian@johan.kiviniemi.name>
+Build-Depends: debhelper (>= 7)
+Standards-Version: 3.9.1
+Vcs-Git: git://github.com/ion1/gsd-lcdfilter.git
+Vcs-Browser: https://github.com/ion1/gsd-lcdfilter
+
+Package: gsd-lcdfilter
+Architecture: all
+Depends: ${misc:Depends}, gnome-settings-daemon
+Description: Make gnome-settings-daemon use the lcdlegacy lcdfilter
+ Automatically substitute the version of libxsettings.so installed by
+ gnome-settings-daemon with one that uses the lcdlegacy lcdfilter instead of
+ lcddefault which causes extraneous blur in font rendering.
+ .
+ This is an empty package with dpkg maintscripts only.

@@ -1,0 +1,14 @@
+#!/bin/sh
+set -eu
+
+file="/usr/lib/gnome-settings-daemon-2.0/libxsettings.so"
+file_orig="$file.original"
+
+if [ "$1" != upgrade ] || dpkg --compare-versions "$2" lt 0; then
+  dpkg-divert --package gsd-lcdfilter --add --rename \
+    --divert "$file_orig" "$file"
+fi
+
+#DEBHELPER#
+
+# vim:set et sw=2 sts=2:
