@@ -1,1 +1,2 @@
 interest /usr/lib/gnome-settings-daemon-2.0/libxsettings.so.original
+interest /usr/lib/gnome-settings-daemon-3.0/libxsettings.so.original

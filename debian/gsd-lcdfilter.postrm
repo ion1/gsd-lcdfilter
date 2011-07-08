@@ -1,15 +1,28 @@
 #!/bin/sh
 set -eu
 
-file="/usr/lib/gnome-settings-daemon-2.0/libxsettings.so"
-file_orig="$file.original"
+handle() {
+  local file file_orig
 
-case "$1" in
-remove|abort-install|disappear)
-  [ -e "$file_orig" ] && rm -f "$file"
+  file="$1"; shift
+  file_orig="$file.original"
+
+  rm -f "$file"
 
   dpkg-divert --package gsd-lcdfilter --remove --rename \
     --divert "$file_orig" "$file"
+
+  [ -d "${file%/*}" ] && \
+    rmdir --ignore-fail-on-non-empty "${file%/*}"
+}
+
+case "$1" in
+remove|abort-install|disappear)
+  for f in '/usr/lib/gnome-settings-daemon-2.0/libxsettings.so' \
+           '/usr/lib/gnome-settings-daemon-3.0/libxsettings.so'
+  do
+    handle "$f"
+  done
   ;;
 esac
 

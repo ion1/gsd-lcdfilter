@@ -1,3 +1,9 @@
+gsd-lcdfilter (2~ppa1) oneiric; urgency=low
+
+  * Handle /usr/lib/gnome-settings-daemon-3.0 in addition to 2.0.
+
+ -- Johan Kiviniemi <debian@johan.kiviniemi.name>  Sat, 09 Jul 2011 01:46:47 +0300
+
 gsd-lcdfilter (1~ppa2) natty; urgency=low
 
   * postrm: Only delete the library if the diversion seems to be there.
