@@ -12,8 +12,9 @@ handle() {
   dpkg-divert --package gsd-lcdfilter --remove --rename \
     --divert "$file_orig" "$file"
 
-  [ -d "${file%/*}" ] && \
+  if [ -d "${file%/*}" ]; then
     rmdir --ignore-fail-on-non-empty "${file%/*}"
+  fi
 }
 
 case "$1" in
