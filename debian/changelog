@@ -1,6 +1,7 @@
 gsd-lcdfilter (2~ppa2) oneiric; urgency=low
 
   * Fix removal of empty directories.
+  * Bump Standards-Version.
 
  -- Johan Kiviniemi <debian@johan.kiviniemi.name>  Sat, 09 Jul 2011 05:04:54 +0300
 
